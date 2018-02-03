@@ -1002,11 +1002,13 @@ public class SourceView extends ViewPart {
                     StringLiteral l = (StringLiteral) decl.getInitializer();
                     return true;
                 }
-            } else {
+            } else if (varDecl instanceof VariableDeclarationFragment){
                 VariableDeclarationFragment decl = (VariableDeclarationFragment) varDecl;
                 if (decl.getInitializer() != null) {
                     return isStringContant(decl.getInitializer(), unit, resource);
                 }
+            } else {
+                logError("Could not find declaration for " + arg + " result is " + varDecl);
             }
         } else if (arg instanceof MethodInvocation) {
             MethodInvocation inv = (MethodInvocation) arg;

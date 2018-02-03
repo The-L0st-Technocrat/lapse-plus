@@ -15,17 +15,19 @@ import org.eclipse.jdt.internal.ui.callhierarchy.CallHierarchyImageDescriptor;
 import org.eclipse.jdt.internal.ui.viewsupport.ImageImageDescriptor;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ILabelProviderListener;
+import org.eclipse.jface.viewers.TreeColumnViewerLabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.internal.dialogs.ViewLabelProvider;
+//import org.eclipse.ui.internal.dialogs.ViewLabelProvider;
 
 public class DLTreeLabelProvider /*implements ILabelProvider*/ extends ColorDecoratingLabelProvider {
 	public DLTreeLabelProvider() {
-		super(new ViewLabelProvider(null, null), null);
+		super(new TreeColumnViewerLabelProvider (null), null);
+		//super(new ViewLabelProvider(null, null), null);
 	}
 	
 	public Color getForeground(Object element) {
